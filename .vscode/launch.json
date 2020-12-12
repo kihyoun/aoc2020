@@ -39,6 +39,15 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/day2/solution-part2.js"
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch Day 03, 1/2",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/day2/solution.js"
         }
     ]
 }
