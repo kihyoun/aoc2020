@@ -25,11 +25,20 @@
         {
             "type": "pwa-node",
             "request": "launch",
-            "name": "Launch Day 02",
+            "name": "Launch Day 02, 1/2",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/day2/solution.js"
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch Day 02, 2/2",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/day2/solution-part2.js"
         }
     ]
 }
