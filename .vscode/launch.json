@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day1/solution.js"
+            "program": "${workspaceFolder}/day01/solution.js"
         },
         {
             "type": "pwa-node",
@@ -20,7 +20,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day1/solution-2.js"
+            "program": "${workspaceFolder}/day01/solution-2.js"
         },
         {
             "type": "pwa-node",
@@ -29,7 +29,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day2/solution.js"
+            "program": "${workspaceFolder}/day02/solution.js"
         },
         {
             "type": "pwa-node",
@@ -38,7 +38,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day2/solution-part2.js"
+            "program": "${workspaceFolder}/day02/solution-part2.js"
         },
         {
             "type": "pwa-node",
@@ -47,7 +47,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day3/solution.js"
+            "program": "${workspaceFolder}/day03/solution.js"
         },
         {
             "type": "pwa-node",
@@ -56,7 +56,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day3/solution2.js"
+            "program": "${workspaceFolder}/day03/solution2.js"
         }
     ]
 }
