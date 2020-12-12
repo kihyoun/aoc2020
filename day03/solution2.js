@@ -1,6 +1,6 @@
 const fs = require('fs');
-// const filename = 'day3/demo.input.webarchive'
-const filename = 'day3/input.webarchive'
+// const filename = 'day03/demo.input.webarchive'
+const filename = 'day03/input.webarchive'
 
 const file = fs.readFileSync(filename, 'utf8');
 console.log('OK:');

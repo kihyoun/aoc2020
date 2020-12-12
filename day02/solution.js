@@ -1,6 +1,6 @@
 const fs = require('fs');
-// const filename = 'day2/demo.input.webarchive'
-const filename = 'day2/input.webarchive'
+// const filename = 'day02/demo.input.webarchive'
+const filename = 'day02/input.webarchive'
 let lines = [];
 const file = fs.readFileSync(filename, 'utf8');
 console.log('OK:');
