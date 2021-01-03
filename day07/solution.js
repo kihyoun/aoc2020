@@ -9,13 +9,13 @@ const bagInfo = {};
 bagInfoRaw.forEach(info => {
     const [bagType, contentRaw] = info.split(' bags contain ');
     const content = contentRaw.replace('.', '')
-        .replace(', ', ',').replace(/ bags/gi, '')
+        .replace(/ ,/gi, ',').replace(/, /gi, ',').replace(/ bags/gi, '')
         .replace(/ bag/gi, '').split(',');
     bagInfo[bagType] = content;
 });
 let callcount = 0;
 
-function countGold(bagType) {
+function countGold(bagType, level) {
     callcount++;
     let sum = 0;
 
@@ -29,9 +29,9 @@ function countGold(bagType) {
         if (type === "shiny gold") {
             sum += parseInt(count, 10);
         } else if (type === "other") {
-            //
+            sum += 0;
         } else {
-            sum += parseInt(count, 10) * countGold(type);
+            sum += parseInt(count, 10) * countGold(type, level + 1);
         }
     });
 
@@ -40,8 +40,9 @@ function countGold(bagType) {
 
 let total = 0;
 let types = [];
+
 Object.keys(bagInfo).forEach(bagType => {
-    let contains = countGold(bagType) > 0;
+    let contains = countGold(bagType, 0) > 0;
     total += contains ? 1 : 0;
     if (contains) types.push(bagType);
 });
