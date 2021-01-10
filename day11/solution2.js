@@ -1,6 +1,9 @@
 const fs = require('fs');
 const filename = 'day11/input.webarchive'
 // const filename = 'day11/demo.input.webarchive'
+// const filename = 'day11/demo.input2.webarchive'
+// const filename = 'day11/demo.input3.webarchive'
+
 const file = fs.readFileSync(filename, 'utf8');
 console.log('OK:');
 const matrix = file.split("\n");
@@ -37,16 +40,71 @@ function equals(a, b) {
 }
 
 const adjacent = (x, y, matrix) => {
-    return [
-        seat(x - 1, y - 1, matrix),
-        seat(x, y - 1, matrix),
-        seat(x + 1, y - 1, matrix),
-        seat(x - 1, y, matrix),
-        seat(x + 1, y, matrix),
-        seat(x - 1, y + 1, matrix),
-        seat(x, y + 1, matrix),
-        seat(x + 1, y + 1, matrix),
-    ];
+    const adj = [];
+    const evaluate = (x, y) => {
+        let cell = seat(x, y, matrix);
+        if (typeof cell === 'undefined') {
+            return true;
+        }
+        if (cell === "#" || cell === "L") {
+            adj.push(cell);
+            return true;
+        }
+        return false;
+    }
+
+    // top
+    let cy = y, cx = x;
+    while (true) {
+        cy = cy - 1;
+        if (evaluate(cx, cy)) break;
+    }
+    // top right
+    cy = y, cx = x;
+    while (true) {
+        cy = cy - 1;
+        cx = cx + 1;
+        if (evaluate(cx, cy)) break;
+    }
+
+    // right
+    cy = y, cx = x;
+    while (true) {
+        cx = cx + 1;
+        if (evaluate(cx, cy)) break;
+    }
+    // bottom right
+    cy = y, cx = x;
+    while (true) {
+        cx = cx + 1; cy = cy + 1;
+        if (evaluate(cx, cy)) break;
+    }
+    //bottom
+    cy = y, cx = x;
+    while (true) {
+        cy = cy + 1;
+        if (evaluate(cx, cy)) break;
+    }
+    // bottom left
+    cy = y, cx = x;
+    while (true) {
+        cx = cx - 1; cy = cy + 1;
+        if (evaluate(cx, cy)) break;
+    }
+    // left
+    cy = y, cx = x;
+    while (true) {
+        cx = cx - 1;
+        if (evaluate(cx, cy)) break;
+    }
+    // top left
+    cy = y, cx = x;
+    while (true) {
+        cx = cx - 1; cy = cy - 1;
+        if (evaluate(cx, cy)) break;
+    }
+
+    return adj;
 }
 
 // console.log(seat(0, 0, matrix))
@@ -66,7 +124,7 @@ const computeCell = (x, y, matrix) => {
                 return acc;
             }
 
-            if (adj.reduce(reducer, 0) > 3) return "L";
+            if (adj.reduce(reducer, 0) > 4) return "L";
         default: return cell;
     }
 }
@@ -95,3 +153,5 @@ while (true) {
 printMatrix(matrixNext)
 console.log(occupied(matrixNext))
 
+// console.log(seat(3, 3, matrix))
+// console.log(adjacent(3, 3, matrix))
