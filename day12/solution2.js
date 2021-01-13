@@ -1,7 +1,7 @@
 const fs = require('fs');
 // const matlib = require('./matlib.js');
-// const filename = 'day12/input.webarchive'
-const filename = 'day12/demo.input.webarchive'
+const filename = 'day12/input.webarchive'
+// const filename = 'day12/demo.input.webarchive'
 const file = fs.readFileSync(filename, 'utf8');
 console.log('OK:');
 const lines = file.split("\n");
@@ -35,19 +35,19 @@ lines.forEach(line => {
             let w2x, w2y;
             // x = x cos a - y sin a
             // y = x sin a + y cos a
-            if ((cmd === "R" && value === 90 )|| (cmd === "L" && value === 270)) {
+            if ((cmd === "L" && value === 90 )|| (cmd === "R" && value === 270)) {
                 // w1x * cos 90 - w1y * sin 90
                 // w1x * sin a + w1y * cos 90
-                w2x = w1y;
-                w2y = (-1) * w1x;
+                w2x = -w1y;
+                w2y = w1x;
             }
-            if ((cmd === "R" && value === 180) || (cmd === "L" && value === 180)) {
-                w2x = (-1) * w1x; // w1x * cos 180 - w1y * sin 180
-                w2y = (-1) * w1y; // w1x * sin 180 + w1y * cos 180
+            if ((cmd === "L" && value === 180) || (cmd === "R" && value === 180)) {
+                w2x = w1x * (-1);
+                w2y = w1y * (-1);
             }
-            if ((cmd === "R" && value === 270) || (cmd === "L" && value === 90)) {
-                w2x = w1y;// w1x * cos 270 - w1y * sin 270
-                w2y = w1x;// w1x * sin 270 + w1y * cos 270
+            if ((cmd === "L" && value === 270) || (cmd === "R" && value === 90)) {
+                w2x = -w1y * (-1);
+                w2y = w1x * (-1);
             }
             w0x = w2x;
             w0y = w2y;
