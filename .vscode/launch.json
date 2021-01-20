@@ -229,5 +229,14 @@
             ],
             "program": "${workspaceFolder}/day15/solution.js"
         },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch Day 15, 2/2",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/day15/solution2.js"
+        },
     ]
 }
